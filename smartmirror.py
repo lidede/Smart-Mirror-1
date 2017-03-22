@@ -49,12 +49,12 @@ icon_lookup = {
     'clear-day': "assets/Sun.png",  # clear sky day
     'wind': "assets/Wind.png",   #wind
     'cloudy': "assets/Cloud.png",  # cloudy day
-    'partly-cloudy-day': "assets/PartlySunny.png",  # partly cloudy day
+    'partly-cloudy-day': "assets/partlycloudy.png",  # partly cloudy day
     'rain': "assets/Rain.png",  # rain day
     'snow': "assets/Snow.png",  # snow day
-    'snow-thin': "assets/Snow.png",  # sleet day
-    'fog': "assets/Haze.png",  # fog day
-    'clear-night': "assets/Moon.png",  # clear sky night
+    'snow-thin': "assets/sleet.png",  # sleet day
+    'fog': "assets/fog.png",  # fog day
+    'clear-night': "assets/Night.png",  # clear sky night
     'partly-cloudy-night': "assets/PartlyMoon.png",  # scattered clouds night
     'thunderstorm': "assets/Storm.png",  # thunderstorm
     'tornado': "assests/Tornado.png",    # tornado
