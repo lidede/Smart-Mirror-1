@@ -45,6 +45,7 @@ def setlocale(name): #thread proof function to work with locale
 
 # maps open weather icons to
 # icon reading is not impacted by the 'lang' parameter
+#For icon values go to https://darksky.net/dev/docs/response
 icon_lookup = {
     'clear-day': "assets/Sun.png",  # clear sky day
     'wind': "assets/Wind.png",   #wind
@@ -55,10 +56,11 @@ icon_lookup = {
     'snow-thin': "assets/sleet.png",  # sleet day
     'fog': "assets/fog.png",  # fog day
     'clear-night': "assets/Night.png",  # clear sky night
-    'partly-cloudy-night': "assets/PartlyMoon.png",  # scattered clouds night
+    'partly-cloudy-night': "assets/cloudy_night.png",  # scattered clouds night
     'thunderstorm': "assets/Storm.png",  # thunderstorm
-    'tornado': "assests/Tornado.png",    # tornado
-    'hail': "assests/Hail.png"  # hail
+    'tornado': "assets/Tornado.png",    # tornado
+    'hail': "assets/Hail.png"  # hail
+    
 }
 
 
@@ -122,7 +124,7 @@ class Weather(Frame):
         self.currentlyLbl.pack(side=TOP, anchor=W)
         self.forecastLbl = Label(self, font=('Garamond', small_text_size), fg="white", bg="black")
         self.forecastLbl.pack(side=TOP, anchor=W)
-        self.locationLbl = Label(self, font=('Garamond', small_text_size), fg="white", bg="black")
+        self.locationLbl = Label(self, font=('Playbill', small_text_size), fg="white", bg="black")
         self.locationLbl.pack(side=TOP, anchor=W)
         self.get_weather()
 
