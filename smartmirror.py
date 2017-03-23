@@ -291,6 +291,10 @@ class Calendar(Frame):
 class CalendarEvent(Frame):
     def __init__(self, parent, event_name="Event 1"):
         Frame.__init__(self, parent, bg='black')
+        image = Image.open("assets/Calendar.png")
+        image = image.resize((25, 25), Image.ANTIALIAS)
+        image = image.convert('RGB')
+        photo = ImageTk.PhotoImage(image)
         self.eventName = event_name
         self.eventNameLbl = Label(self, text=self.eventName, font=('Garamond', small_text_size), fg="white", bg="black")
         self.eventNameLbl.pack(side=TOP, anchor=E)
@@ -317,9 +321,9 @@ class FullscreenWindow:
         # news
         self.news = News(self.bottomFrame)
         self.news.pack(side=LEFT, anchor=S, padx=100, pady=60)
-        # calender - removing for now
-        # self.calender = Calendar(self.bottomFrame)
-        # self.calender.pack(side = RIGHT, anchor=S, padx=100, pady=60)
+        # calendar
+         self.calendar = Calendar(self.bottomFrame)
+         self.calendar.pack(side = RIGHT, anchor=S, padx=100, pady=60)
 
     def toggle_fullscreen(self, event=None):
         self.state = not self.state  # Just toggling the boolean
