@@ -322,8 +322,8 @@ class FullscreenWindow:
         self.news = News(self.bottomFrame)
         self.news.pack(side=LEFT, anchor=S, padx=100, pady=60)
         # calendar
-         self.calendar = Calendar(self.bottomFrame)
-         self.calendar.pack(side = RIGHT, anchor=S, padx=100, pady=60)
+        self.calendar = Calendar(self.bottomFrame)
+        self.calendar.pack(side = RIGHT, anchor=S, padx=100, pady=60)
 
     def toggle_fullscreen(self, event=None):
         self.state = not self.state  # Just toggling the boolean
