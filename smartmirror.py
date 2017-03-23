@@ -178,7 +178,7 @@ class Weather(Frame):
                     self.icon = icon2
                     image = Image.open(icon2)
                     image = image.resize((100, 100), Image.ANTIALIAS)
-                    image = image.convert('RGB')
+                    image = image.convert('L')
                     photo = ImageTk.PhotoImage(image)
 
                     self.iconLbl.config(image=photo)
@@ -252,8 +252,8 @@ class NewsHeadline(Frame):
         Frame.__init__(self, parent, bg='black')
 
         image = Image.open("assets/Newspaper.png")
-        image = image.resize((25, 25), Image.ANTIALIAS)
-        #image = image.convert('RGB')
+        image = image.resize((100, 100), Image.ANTIALIAS)
+        image = image.convert('L')
         photo = ImageTk.PhotoImage(image)
 
         self.iconLbl = Label(self, bg='black', image=photo)
@@ -261,7 +261,7 @@ class NewsHeadline(Frame):
         self.iconLbl.pack(side=LEFT, anchor=N)
 
         self.eventName = event_name
-        self.eventNameLbl = Label(self, text=self.eventName, font=('Garamond', small_text_size), fg="white", bg="black")
+        self.eventNameLbl = Label(self, text=self.eventName, font=('Lucida Console', small_text_size), fg="white", bg="black")
         self.eventNameLbl.pack(side=LEFT, anchor=N)
 
 
@@ -292,8 +292,8 @@ class CalendarEvent(Frame):
     def __init__(self, parent, event_name="Event 1"):
         Frame.__init__(self, parent, bg='black')
         image = Image.open("assets/Calendar.png")
-        image = image.resize((25, 25), Image.ANTIALIAS)
-        #image = image.convert('RGB')
+        image = image.resize((100, 100), Image.ANTIALIAS)
+        image = image.convert('RGB')
         photo = ImageTk.PhotoImage(image)
         self.eventName = event_name
         self.eventNameLbl = Label(self, text=self.eventName, font=('Garamond', small_text_size), fg="white", bg="black")
