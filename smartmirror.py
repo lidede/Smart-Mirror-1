@@ -253,7 +253,7 @@ class NewsHeadline(Frame):
 
         image = Image.open("assets/Newspaper.png")
         image = image.resize((25, 25), Image.ANTIALIAS)
-        image = image.convert('RGB')
+        #image = image.convert('RGB')
         photo = ImageTk.PhotoImage(image)
 
         self.iconLbl = Label(self, bg='black', image=photo)
@@ -293,7 +293,7 @@ class CalendarEvent(Frame):
         Frame.__init__(self, parent, bg='black')
         image = Image.open("assets/Calendar.png")
         image = image.resize((25, 25), Image.ANTIALIAS)
-        image = image.convert('RGB')
+        #image = image.convert('RGB')
         photo = ImageTk.PhotoImage(image)
         self.eventName = event_name
         self.eventNameLbl = Label(self, text=self.eventName, font=('Garamond', small_text_size), fg="white", bg="black")
