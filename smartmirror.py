@@ -30,9 +30,9 @@ weather_lang = 'en' # see https://darksky.net/dev/docs/forecast for full list of
 weather_unit = 'us' # see https://darksky.net/dev/docs/forecast for full list of unit parameters values
 latitude = None # Set this if IP location lookup does not work for you (must be a string)
 longitude = None # Set this if IP location lookup does not work for you (must be a string)
-xlarge_text_size = 90
-large_text_size = 46
-medium_text_size = 26
+xlarge_text_size = 100
+large_text_size = 60
+medium_text_size = 30
 small_text_size = 16
 
 @contextmanager
@@ -70,15 +70,15 @@ class Clock(Frame):
         Frame.__init__(self, parent, bg='black')
         # initialize time label
         self.time1 = ''
-        self.timeLbl = Label(self, font=('Playbill', large_text_size), fg="white", bg="black")
+        self.timeLbl = Label(self, font=('Playbill', xlarge_text_size), fg="white", bg="black")
         self.timeLbl.pack(side=TOP, anchor=E)
         # initialize day of week
         self.day_of_week1 = ''
-        self.dayOWLbl = Label(self, text=self.day_of_week1, font=('Playbill', small_text_size), fg="white", bg="black")
+        self.dayOWLbl = Label(self, text=self.day_of_week1, font=('Playbill', large_text_size), fg="white", bg="black")
         self.dayOWLbl.pack(side=TOP, anchor=E)
         # initialize date label
         self.date1 = ''
-        self.dateLbl = Label(self, text=self.date1, font=('Playbill', small_text_size), fg="white", bg="black")
+        self.dateLbl = Label(self, text=self.date1, font=('Playbill', medium_text_size), fg="white", bg="black")
         self.dateLbl.pack(side=TOP, anchor=E)
         self.tick()
 
