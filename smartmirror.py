@@ -48,19 +48,19 @@ def setlocale(name): #thread proof function to work with locale
 # icon reading is not impacted by the 'lang' parameter
 #For icon values go to https://darksky.net/dev/docs/response
 icon_lookup = {
-    'clear-day': "assets/Sun.png",  # clear sky day
-    'wind': "assets/Wind.png",   #wind
-    'cloudy': "assets/Cloud.png",  # cloudy day
-    'partly-cloudy-day': "assets/partlycloudy.png",  # partly cloudy day
-    'rain': "assets/Rain.png",  # rain day
-    'snow': "assets/Snow.png",  # snow day
-    'snow-thin': "assets/sleet.png",  # sleet day
-    'fog': "assets/fog.png",  # fog day
-    'clear-night': "assets/Night.png",  # clear sky night
-    'partly-cloudy-night': "assets/cloudy_night.png",  # scattered clouds night
-    'thunderstorm': "assets/Storm.png",  # thunderstorm
-    'tornado': "assets/Tornado.png",    # tornado
-    'hail': "assets/Hail.png"  # hail
+    'clear-day': "assets/Sun.jpg",  # clear sky day
+    'wind': "assets/Wind.jpg",   #wind
+    'cloudy': "assets/Cloud.jpg",  # cloudy day
+    'partly-cloudy-day': "assets/partlycloudy.jpg",  # partly cloudy day
+    'rain': "assets/Rain.jpg",  # rain day
+    'snow': "assets/Snow.jpg",  # snow day
+    'snow-thin': "assets/sleet.jpg",  # sleet day
+    'fog': "assets/fog.jpg",  # fog day
+    'clear-night': "assets/Night.jpg",  # clear sky night
+    'partly-cloudy-night': "assets/cloudy_night.jpg",  # scattered clouds night
+    'thunderstorm': "assets/Storm.jpg",  # thunderstorm
+    'tornado': "assets/Tornado.jpg",    # tornado
+    'hail': "assets/Hail.jpg"  # hail
     
 }
 
@@ -293,7 +293,7 @@ class Calendar(Frame):
 class CalendarEvent(Frame):
     def __init__(self, parent, event_name="Event 1"):
         Frame.__init__(self, parent, bg='black')
-        image = Image.open("assets/Calendar.png")
+        image = Image.open("assets/Calendar.jpg")
         image = image.resize((20, 20), Image.ANTIALIAS)
         image = image.convert('RGB')
         photo = ImageTk.PhotoImage(image)
