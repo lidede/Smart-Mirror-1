@@ -253,11 +253,11 @@ class NewsHeadline(Frame):
         Frame.__init__(self, parent, bg='black')
 
         image = Image.open("assets/Newspaper.png")
-        image = image.resize((50, 50), Image.ANTIALIAS)
+        image = image.resize((20, 20), Image.ANTIALIAS)
         image = image.convert('RGB')
         photo = ImageTk.PhotoImage(image)
 
-        self.iconLbl = Label(self, bg='black', image=photo)
+        self.iconLbl = Label(self, bg='white', image=photo)
         self.iconLbl.image = photo
         self.iconLbl.pack(side=LEFT, anchor=N)
 
