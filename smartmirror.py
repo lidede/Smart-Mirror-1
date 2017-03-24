@@ -279,11 +279,12 @@ class Calendar(Frame):
     def get_events(self):
         #TODO: implement this method
         # reference https://developers.google.com/google-apps/calendar/quickstart/python
-        quickstart.main()
+        
         # remove all children
         for widget in self.calendarEventContainer.winfo_children():
             widget.destroy()
-
+        calendar_feed=quickstart.main()
+        feed = feedparser.parse(calendar_feed)
         calendar_event = CalendarEvent(self.calendarEventContainer)
         calendar_event.pack(side=TOP, anchor=E)
         pass
