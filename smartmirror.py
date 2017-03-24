@@ -14,6 +14,7 @@ import requests
 import json
 import traceback
 import feedparser
+import quickstart
 
 from PIL import Image, ImageTk
 from contextlib import contextmanager
@@ -278,7 +279,7 @@ class Calendar(Frame):
     def get_events(self):
         #TODO: implement this method
         # reference https://developers.google.com/google-apps/calendar/quickstart/python
-
+        quickstart.main()
         # remove all children
         for widget in self.calendarEventContainer.winfo_children():
             widget.destroy()
