@@ -257,7 +257,7 @@ class NewsHeadline(Frame):
         image = image.convert('RGB')
         photo = ImageTk.PhotoImage(image)
 
-        self.iconLbl = Label(self, bg='Red', image=photo)
+        self.iconLbl = Label(self, bg='black', image=photo)
         self.iconLbl.image = photo
         self.iconLbl.pack(side=LEFT, anchor=N)
 
