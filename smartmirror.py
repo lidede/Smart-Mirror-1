@@ -257,7 +257,7 @@ class NewsHeadline(Frame):
         image = image.convert('RGB')
         photo = ImageTk.PhotoImage(image)
 
-        self.iconLbl = Label(self, bg='white', image=photo)
+        self.iconLbl = Label(self, bg='Red', image=photo)
         self.iconLbl.image = photo
         self.iconLbl.pack(side=LEFT, anchor=N)
 
@@ -298,7 +298,7 @@ class CalendarEvent(Frame):
         image = image.convert('RGB')
         photo = ImageTk.PhotoImage(image)
         self.eventName = event_name
-        self.eventNameLbl = Label(self, text=self.eventName, font=('Lucida console', small_text_size), fg="white", bg="black")
+        self.eventNameLbl = Label(self, text=self.eventName, font=('Lucida console', small_text_size), fg="blue", bg="black")
         self.eventNameLbl.pack(side=TOP, anchor=E)
 
 
