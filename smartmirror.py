@@ -252,7 +252,7 @@ class NewsHeadline(Frame):
     def __init__(self, parent, event_name=""):
         Frame.__init__(self, parent, bg='black')
 
-        image = Image.open("assets/Newspaper.png")
+        image = Image.open("assets/Newspaper.jpg")
         image = image.resize((20, 20), Image.ANTIALIAS)
         image = image.convert('RGB')
         photo = ImageTk.PhotoImage(image)
