@@ -121,7 +121,7 @@ class Weather(Frame):
         self.temperatureLbl.pack(side=LEFT, anchor=N)
         self.iconLbl = Label(self.degreeFrm, bg="black")
         self.iconLbl.pack(side=LEFT, anchor=N, padx=20)
-        self.currentlyLbl = Label(self, font=('Lucida console', medium_text_size), fg="white", bg="black")
+        self.currentlyLbl = Label(self, font=('Lucida console', large_text_size), fg="white", bg="black")
         self.currentlyLbl.pack(side=TOP, anchor=W)
         self.forecastLbl = Label(self, font=('Lucida console', small_text_size), fg="white", bg="black")
         self.forecastLbl.pack(side=TOP, anchor=W)
@@ -178,7 +178,7 @@ class Weather(Frame):
                 if self.icon != icon2:
                     self.icon = icon2
                     image = Image.open(icon2)
-                    image = image.resize((50, 50), Image.ANTIALIAS)
+                    image = image.resize((80, 80), Image.ANTIALIAS)
                     image = image.convert('RGB')
                     photo = ImageTk.PhotoImage(image)
 
