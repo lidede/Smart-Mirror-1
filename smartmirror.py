@@ -30,7 +30,7 @@ weather_lang = 'en' # see https://darksky.net/dev/docs/forecast for full list of
 weather_unit = 'us' # see https://darksky.net/dev/docs/forecast for full list of unit parameters values
 latitude = None # Set this if IP location lookup does not work for you (must be a string)
 longitude = None # Set this if IP location lookup does not work for you (must be a string)
-xlarge_text_size = 40
+xlarge_text_size = 60
 large_text_size = 25
 medium_text_size = 16
 small_text_size = 11
@@ -178,7 +178,7 @@ class Weather(Frame):
                 if self.icon != icon2:
                     self.icon = icon2
                     image = Image.open(icon2)
-                    image = image.resize((80, 80), Image.ANTIALIAS)
+                    image = image.resize((100, 100), Image.ANTIALIAS)
                     image = image.convert('RGB')
                     photo = ImageTk.PhotoImage(image)
 
