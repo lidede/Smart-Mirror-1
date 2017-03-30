@@ -30,10 +30,10 @@ weather_lang = 'en' # see https://darksky.net/dev/docs/forecast for full list of
 weather_unit = 'us' # see https://darksky.net/dev/docs/forecast for full list of unit parameters values
 latitude = None # Set this if IP location lookup does not work for you (must be a string)
 longitude = None # Set this if IP location lookup does not work for you (must be a string)
-xlarge_text_size = 30
-large_text_size = 20
+xlarge_text_size = 40
+large_text_size = 25
 medium_text_size = 16
-small_text_size = 12
+small_text_size = 11
 
 @contextmanager
 def setlocale(name): #thread proof function to work with locale
@@ -74,7 +74,7 @@ class Clock(Frame):
         self.timeLbl.pack(side=TOP, anchor=E)
         # initialize day of week
         self.day_of_week1 = ''
-        self.dayOWLbl = Label(self, text=self.day_of_week1, font=('Playbill', medium_text_size), fg="white", bg="black")
+        self.dayOWLbl = Label(self, text=self.day_of_week1, font=('Playbill', large_text_size), fg="white", bg="black")
         self.dayOWLbl.pack(side=TOP, anchor=E)
         # initialize date label
         self.date1 = ''
@@ -178,7 +178,7 @@ class Weather(Frame):
                 if self.icon != icon2:
                     self.icon = icon2
                     image = Image.open(icon2)
-                    image = image.resize((20, 20), Image.ANTIALIAS)
+                    image = image.resize((50, 50), Image.ANTIALIAS)
                     image = image.convert('RGB')
                     photo = ImageTk.PhotoImage(image)
 
