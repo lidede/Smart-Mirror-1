@@ -30,10 +30,10 @@ weather_lang = 'en' # see https://darksky.net/dev/docs/forecast for full list of
 weather_unit = 'us' # see https://darksky.net/dev/docs/forecast for full list of unit parameters values
 latitude = None # Set this if IP location lookup does not work for you (must be a string)
 longitude = None # Set this if IP location lookup does not work for you (must be a string)
-xlarge_text_size = 20
-large_text_size = 16
-medium_text_size = 12
-small_text_size = 10
+xlarge_text_size = 30
+large_text_size = 20
+medium_text_size = 16
+small_text_size = 12
 
 @contextmanager
 def setlocale(name): #thread proof function to work with locale
