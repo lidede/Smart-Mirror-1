@@ -283,7 +283,7 @@ class Calendar(Frame):
         # remove all children
         for widget in self.calendarEventContainer.winfo_children():
             widget.destroy()
-        calendar_feed=quickstart.main()
+        calendar_feed=quickstart.py()
         feed = feedparser.parse(calendar_feed)
         calendar_event = CalendarEvent(self.calendarEventContainer)
         calendar_event.pack(side=TOP, anchor=E)
