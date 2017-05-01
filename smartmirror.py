@@ -286,8 +286,8 @@ class Calendar(Frame):
         calendar_feed=quickstart.main()
         feed = feedparser.parse(calendar_feed)
         for post in feed.entries[0:5]:
-               calendar_event = CalendarEvent(self.calendarEventContainer)
-                calendar_event.pack(side=TOP, anchor=E)
+            calendar_event = CalendarEvent(self.calendarEventContainer)
+            calendar_event.pack(side=TOP, anchor=E)
     except Exception as e:
             traceback.print_exc()
             print "Error: %s. Cannot get calendar." % e
