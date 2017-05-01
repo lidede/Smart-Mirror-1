@@ -283,11 +283,16 @@ class Calendar(Frame):
         # remove all children
         for widget in self.calendarEventContainer.winfo_children():
             widget.destroy()
-        calendar_feed=quickstart.py()
+        calendar_feed=quickstart.main()
         feed = feedparser.parse(calendar_feed)
-        calendar_event = CalendarEvent(self.calendarEventContainer)
-        calendar_event.pack(side=TOP, anchor=E)
-        pass
+        for post in feed.entries[0:5]:
+               calendar_event = CalendarEvent(self.calendarEventContainer)
+               calendar_event.pack(side=TOP, anchor=E)
+        except Exception as e:
+            traceback.print_exc()
+            print "Error: %s. Cannot get calendar." % e
+
+        self.after(600000, self.get_headlines)
 
 
 class CalendarEvent(Frame):
