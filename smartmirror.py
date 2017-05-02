@@ -286,12 +286,31 @@ class Calendar(Frame):
         self.get_events()
 
     def get_events(self):
+<<<<<<< HEAD
         try:
             # remove all children
             for widget in self.calendarEventContainer.winfo_children():
                 widget.destroy()
             calendar_feed=quickstart.main()
             feed = feedparser.parse(calendar_feed)
+=======
+        #TODO: implement this method
+        # reference https://developers.google.com/google-apps/calendar/quickstart/python
+        
+        # remove all children
+        for widget in self.calendarEventContainer.winfo_children():
+            widget.destroy()
+        calendar_feed=quickstart.main()
+        feed = feedparser.parse(calendar_feed)
+        for post in feed.entries[0:5]:
+            calendar_event = CalendarEvent(self.calendarEventContainer)
+            calendar_event.pack(side=TOP, anchor=E)
+    except Exception as e:
+            traceback.print_exc()
+            print "Error: %s. Cannot get calendar." % e
+
+        self.after(600000, self.get_headlines)
+>>>>>>> 91524c2e0bfbeaa9c1529a806f813b091dc25f4d
 
             for post in feed.entries[0:10]:
                 calendar_event = CalendarEvent(self.calendarEventContainer)
