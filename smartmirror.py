@@ -41,8 +41,8 @@ latitude = None # Set this if IP location lookup does not work for you (must be 
 longitude = None # Set this if IP location lookup does not work for you (must be a string)
 xlarge_text_size = 60
 large_text_size = 25
-medium_text_size = 16
-small_text_size = 11
+medium_text_size = 12
+small_text_size = 10
 
 @contextmanager
 def setlocale(name): #thread proof function to work with locale
@@ -229,7 +229,7 @@ class News(Frame):
         Frame.__init__(self, parent, *args, **kwargs)
         self.config(bg='black')
         self.title = 'News' # 'News' is more internationally generic
-        self.newsLbl = Label(self, text=self.title, font=('Lucida console', medium_text_size), fg="white", bg="black")
+        self.newsLbl = Label(self, text=self.title, font=('Lucida console', large_text_size), fg="white", bg="black")
         self.newsLbl.pack(side=TOP, anchor=W)
         self.headlinesContainer = Frame(self, bg="black")
         self.headlinesContainer.pack(side=TOP)
@@ -247,7 +247,7 @@ class News(Frame):
 
             feed = feedparser.parse(headlines_url)
 
-            for post in feed.entries[0:5]:
+            for post in feed.entries[0:7]:
                 headline = NewsHeadline(self.headlinesContainer, post.title)
                 headline.pack(side=TOP, anchor=W)
         except Exception as e:
@@ -279,38 +279,20 @@ class Calendar(Frame):
     def __init__(self, parent, *args, **kwargs):
         Frame.__init__(self, parent, bg='black')
         self.title = 'Calendar'
-        self.calendarLbl = Label(self, text=self.title, font=('Lucida console', medium_text_size), fg="white", bg="black")
+        self.calendarLbl = Label(self, text=self.title, font=('Lucida console', large_text_size), fg="white", bg="black")
         self.calendarLbl.pack(side=TOP, anchor=E)
         self.calendarEventContainer = Frame(self, bg='black')
         self.calendarEventContainer.pack(side=TOP, anchor=E)
         self.get_events()
 
     def get_events(self):
-<<<<<<< HEAD
         try:
             # remove all children
             for widget in self.calendarEventContainer.winfo_children():
                 widget.destroy()
             calendar_feed=quickstart.main()
             feed = feedparser.parse(calendar_feed)
-=======
-        #TODO: implement this method
         # reference https://developers.google.com/google-apps/calendar/quickstart/python
-        
-        # remove all children
-        for widget in self.calendarEventContainer.winfo_children():
-            widget.destroy()
-        calendar_feed=quickstart.main()
-        feed = feedparser.parse(calendar_feed)
-        for post in feed.entries[0:5]:
-            calendar_event = CalendarEvent(self.calendarEventContainer)
-            calendar_event.pack(side=TOP, anchor=E)
-    except Exception as e:
-            traceback.print_exc()
-            print "Error: %s. Cannot get calendar." % e
-
-        self.after(600000, self.get_headlines)
->>>>>>> 91524c2e0bfbeaa9c1529a806f813b091dc25f4d
 
             for post in feed.entries[0:10]:
                 calendar_event = CalendarEvent(self.calendarEventContainer)
