@@ -14,7 +14,16 @@ import requests
 import json
 import traceback
 import feedparser
+import httplib2
+import os
 import quickstart
+
+from apiclient import discovery
+from oauth2client import client
+from oauth2client import tools
+from oauth2client.file import Storage
+
+import datetime
 
 from PIL import Image, ImageTk
 from contextlib import contextmanager
@@ -277,21 +286,25 @@ class Calendar(Frame):
         self.get_events()
 
     def get_events(self):
-        #TODO: implement this method
-        # reference https://developers.google.com/google-apps/calendar/quickstart/python
-        
-        # remove all children
-        for widget in self.calendarEventContainer.winfo_children():
-            widget.destroy()
-        calendar_feed=quickstart.py()
-        feed = feedparser.parse(calendar_feed)
-        calendar_event = CalendarEvent(self.calendarEventContainer)
-        calendar_event.pack(side=TOP, anchor=E)
-        pass
+        try:
+            # remove all children
+            for widget in self.calendarEventContainer.winfo_children():
+                widget.destroy()
+            calendar_feed=quickstart.main()
+            feed = feedparser.parse(calendar_feed)
 
+            for post in feed.entries[0:10]:
+                calendar_event = CalendarEvent(self.calendarEventContainer)
+                calendar_event.pack(side=TOP, anchor=E)
 
+        except Exception as e:
+            traceback.print_exc()
+            print "Error: %s. Cannot get news." % e
+
+        self.after(600000, self.get_events)
+            
 class CalendarEvent(Frame):
-    def __init__(self, parent, event_name="Event 1"):
+    def __init__(self, parent, event_name=""):
         Frame.__init__(self, parent, bg='black')
         image = Image.open("assets/Calendar.jpg")
         image = image.resize((20, 20), Image.ANTIALIAS)
@@ -308,25 +321,27 @@ class FullscreenWindow:
         self.tk = Tk()
         self.tk.configure(background='black')
         self.topFrame = Frame(self.tk, background = 'black')
+        self.middleFrame= Frame(self.tk, background = 'black')
         self.bottomFrame = Frame(self.tk, background = 'black')
         self.topFrame.pack(side = TOP, fill=BOTH, expand = YES)
+        self.middleFrame.pack(side = TOP, fill=BOTH, expand = YES)
         self.bottomFrame.pack(side = BOTTOM, fill=BOTH, expand = YES)
         self.state = False
         self.tk.bind("<Return>", self.toggle_fullscreen)
         self.tk.bind("<Escape>", self.end_fullscreen)
         # clock
         self.clock = Clock(self.topFrame)
-        self.clock.pack(side=RIGHT, anchor=N, padx=80, pady=60)
+        self.clock.pack(side=RIGHT, anchor=N, padx=100, pady=60)
         # weather
         self.weather = Weather(self.topFrame)
-        self.weather.pack(side=LEFT, anchor=N, padx=80, pady=60)
+        self.weather.pack(side=LEFT, anchor=N, padx=100, pady=60)
+        # calendar
+        self.calendar = Calendar(self.middleFrame)
+        self.calendar.pack(side = RIGHT, anchor=S, padx=100, pady=60)
         # news
         self.news = News(self.bottomFrame)
-        self.news.pack(side=LEFT, anchor=S, padx=80, pady=60)
-        # calendar
-        self.calendar = Calendar(self.bottomFrame)
-        self.calendar.pack(side = RIGHT, anchor=S, padx=80, pady=60)
-
+        self.news.pack(side=LEFT, anchor=S, padx=100, pady=60)
+        
     def toggle_fullscreen(self, event=None):
         self.state = not self.state  # Just toggling the boolean
         self.tk.attributes("-fullscreen", self.state)
